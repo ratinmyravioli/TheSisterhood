@@ -8,7 +8,7 @@ function App() {
 
   const [data, setData] = useState([])
 
-  // EXAMPLE QUERY
+  // EXAMPLE QUERY: this block of text just retrieves stuff from the database, does not show it.
   useEffect(() => {
     const fetchData = async () => {
       const { data, error } = await supabase
@@ -26,7 +26,14 @@ function App() {
 
   return (
     <>
-      <div style={{padding: '2rem'}}>
+      {/* For displaying else */}
+      <div className = "app-background">
+        <h1 style ={{ color: '#fdfdfd' }}>Welcome to The Sisterhood</h1>
+        <p style ={{ color: '#fdfdfd' }}>Information</p>
+        <p style ={{ color: '#fdfdfd' }}>Healthcare Map</p>
+      </div>
+      {/* For displaying database */}
+      <div style={{padding: '2rem'}}> 
         <h1>Data</h1>
         {data.map((item) => (
           <div key = {item.id} style={{border: '1px solid #ccc', marginBottom: '1rem', padding: '0.5rem'}}>
@@ -35,11 +42,7 @@ function App() {
           </div>
         ))}
       </div>
-      <div className = "app-background">
-        <h1 style ={{ color: '#fdfdfd' }}>Welcome to The Sisterhood</h1>
-        <p style ={{ color: '#fdfdfd' }}>Information</p>
-        <p style ={{ color: '#fdfdfd' }}>Healthcare Map</p>
-      </div>
+      
       
       
     </>

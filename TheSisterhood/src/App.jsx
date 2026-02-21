@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY);
+import { supabase } from './supabase';
+import Chatbot from './chatbot';
 
 function App() {
+  console.log("URL:", import.meta.env.VITE_SUPABASE_URL);
+  console.log("KEY:", import.meta.env.VITE_SUPABASE_ANON_KEY);
 
   const [data, setData] = useState([])
 
@@ -42,8 +43,7 @@ function App() {
           </div>
         ))}
       </div>
-      
-      
+      <Chatbot />
       
     </>
     

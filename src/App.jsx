@@ -12,6 +12,8 @@ import About from "./pages/About";
 
 import homeImg from "./assets/homeImage.png";
 
+const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY);
+
 function App() {
 
   const [post, setPost] = useState([])

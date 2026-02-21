@@ -15,22 +15,22 @@ const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env
 
 function App() {
 
-  const [data, setData] = useState([])
+  const [post, setPost] = useState([])
 
   // EXAMPLE QUERY: this block of text just retrieves stuff from the database, does not show it.
   useEffect(() => {
-    const fetchData = async () => {
-      const { data, error } = await supabase
-      .from('categories')
-      .select('name, description') // select all columns from database
+    const fetchPost = async () => {
+      const {data, error } = await supabase
+      .from('forum_posts')
+      .select('id, title, body') // select all columns from database
 
       if (error) {
         console.log('Error fetching data:', error)
       } else {
-        setData(data)
+        setPost(data)
       }
     }
-    fetchData()
+    fetchPost()
   }, [])
 
   return (
@@ -69,13 +69,13 @@ function App() {
           <img src={homeImg} alt="" className="home-image"/>
         </div>
       </div>
-      {/* For displaying database */}
+      {/* For displaying forum database */}
       <div style={{padding: '2rem'}}> 
-        <h1>Data</h1>
-        {data.map((item) => (
+        <h1>Forum</h1>
+        {post.map((item) => (
           <div key = {item.id} style={{border: '1px solid #ccc', marginBottom: '1rem', padding: '0.5rem'}}>
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
+            <h2>{item.title}</h2>
+            <p>{item.body}</p>
           </div>
         ))}
       </div>

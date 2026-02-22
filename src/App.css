@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@font-face {
+  font-family: 'GlacialIndifference';
+  src: url('./assets/fonts/glacialindifference-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .app-container{
   min-height: 100vh;
@@ -121,9 +127,6 @@ body {
   padding: 24px;
   background: #ffadad
 }
-
-/* App.css */
-/* ... your existing styles ... */
 
 /* STYLING FOR GOOGLE MAPS INFOWINDOW */
 .gm-style .gm-style-iw-c {

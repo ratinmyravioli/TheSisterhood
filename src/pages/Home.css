@@ -5,39 +5,34 @@
   align-items: center;
   padding: 60px;
 }
-.home-box{
-  background: #fde6e6;
-  width: 97%;
-  max-width: 2000px;
-  padding: 40px;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-
-}
 
 .home-text{
   flex: 1;
+  text-align: left;
 }
 
-.home-text h1{
+.home-text h1.home-title{
   margin-bottom: 15px;
-  font-size: 100px;
+  color: #f99d9d;
+  font-size: 60px; 
+  line-height: 0.9; 
+  text-align: left;
+  margin-bottom: 60px;
 }
 
 .home-text p{
   margin-bottom: 20px;
   font-size: 18px;
+  text-align: left;
 }
+
 
 .home-button{
   padding: 12px 30px;
   border: none;
   background: #e69494;
   color: white;
-  font-size: 40px;
+  font-size: 22px;
   border-radius: 60px;
   cursor: pointer;
 }
@@ -49,4 +44,14 @@
 .home-image{
   width: 700px;
   border-radius: 12px;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 10%;
+  gap: 10px;
 }

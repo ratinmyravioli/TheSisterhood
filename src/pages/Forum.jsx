@@ -1,5 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 import { useState, useEffect } from 'react'
+import { IoChatbubble } from "react-icons/io5";
+import { IoThumbsUpSharp } from "react-icons/io5";
+import { IoThumbsDownSharp } from "react-icons/io5";
+
 const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY);
 
 export default function Forum(){
@@ -70,7 +74,7 @@ export default function Forum(){
                             paddingRight: '85px',
                             boxSizing: 'border-box', 
                             minHeight: '120px',
-                            maxHeight: '300px',
+                            maxHeight: '400px',
                             width: '100%',
                             display: 'block',
                             resize: 'vertical',
@@ -82,7 +86,7 @@ export default function Forum(){
                         disabled={isSubmitting}
                         style={circleButtonStyle}
                     >
-                        {isSubmitting ? '...' : 'Send'}
+                        {isSubmitting ? '...' : '+'}
                     </button>
                 </div>
                 {post.map((item) => (
@@ -91,6 +95,7 @@ export default function Forum(){
                     marginBottom: '0.1rem',
                     backgroundColor: '#ffffff',
                     padding: '1rem',
+                    scrollbarWidth: '0',
                     wordWrap: 'break-word',
                     overflowWrap: 'break-word',
                     whiteSpace: 'pre-wrap'}}>
@@ -106,13 +111,15 @@ export default function Forum(){
 const circleButtonStyle = {
     width: '60px',
     height: '60px',
+    position: 'absolute',
+    right: '10px',
+    bottom: '10px',
     borderRadius: '50%', // This makes it a circle
     backgroundColor: '#e69494', // Supabase Green
     color: 'white',
     border: 'none',
     cursor: 'pointer',
     fontWeight: 'bold',
-    alignSelf: 'flex-end', // Aligns it to the right of the column
     transition: 'transform 0.1s ease',
 }
 

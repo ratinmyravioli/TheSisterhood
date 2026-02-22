@@ -43,14 +43,14 @@ export default function MapPage() {
   const handleAIRequest = async (prompt, title) => {
     const now = Date.now();
     if (now - lastRequestTime.current < 15000) {
-      setDetails({ title: "Please Wait", content: "To comply with API limits, please wait 15 seconds." });
+      setDetails({ title: "Please Wait", content: "To comply with API limits, please wait 15 seconds, then try again." });
       return;
     }
     lastRequestTime.current = now;
 
     setDetails({ title, content: "Consulting AI..." });
     try {
-      // Using gemini-2.5-flash as requested
+      // Using gemini-2.5-flash thanks to its quick capabilities to allow users to quickly see benefits of location and compare resources
       const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
       const result = await model.generateContent(prompt);
       setDetails({ title, content: result.response.text() });
@@ -69,7 +69,8 @@ export default function MapPage() {
         ))}
         <h3>Legal Info</h3>
         {["Abortion Laws", "Restraining Order Laws"].map(f => (
-          <button key={f} className="filter-btn" onClick={() => handleAIRequest(`Provide a concise state-by-state list of ${f} in the USA. Use bullet points.`, f)}>{f}</button>
+          <button key={f} className="filter-btn" onClick={() => handleAIRequest(`Provide an extremely concise state-by-state list of ${f} in the USA. Use dashes ("-") as bullet points, but note you do not have access to 
+            any markdown so please avoid it and use plain text only.`, f)}>{f}</button>
         ))}
       </div>
 
@@ -79,7 +80,8 @@ export default function MapPage() {
           <Map defaultCenter={{ lat: 39.8, lng: -98.5 }} defaultZoom={4} mapId="SISTERHOOD_MAP_ID">
             <SearchEngine query={activeQuery} onResults={setShelters} />
             {shelters.map(s => (
-              <AdvancedMarker key={s.place_id} position={s.geometry.location} onClick={() => handleAIRequest(`Write a supportive 2-sentence summary for ${s.name}.`, s.name)}>
+              <AdvancedMarker key={s.place_id} position={s.geometry.location} onClick={() => handleAIRequest(`Based on the Google Maps' reviews for ${s.name}, please first note the current star rating for this amenity. Then, write a 
+              brief summary on its pros and cons and whether it seems like a trustworthy resource.`, s.name)}>
                 <Pin background={'#ffadad'} />
               </AdvancedMarker>
             ))}

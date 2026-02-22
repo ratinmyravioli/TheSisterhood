@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { GoogleGenAI } from "@google/genai";
+import { IoChatbubble } from "react-icons/io5";
 
 export default function Chatbot() {
   const [messages, setMessages] = useState([]);
@@ -63,8 +64,8 @@ export default function Chatbot() {
     <div>
       {/* ICON BUTTON */}
       <button 
-        onClick={toggleChat} style={{ position: "fixed", bottom: "20px", right: "20px", width: "60px", height: "60px", borderRadius: "50%", background: "#ff69b4", color: "white", fontSize: "24px", border: "none", cursor: "pointer" }} >
-        💬
+        onClick={toggleChat} style={{ position: "fixed", bottom: "20px", right: "20px", width: "60px", height: "60px", borderRadius: "50%", background: "#e69494", color: "white", fontSize: "24px", border: "none", cursor: "pointer" }} >
+        <IoChatbubble size = {20} />
       </button>
 
       {/* CHATBOX (only appears when isOpen === true) */}

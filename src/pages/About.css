@@ -1,28 +1,10 @@
-.app-background{
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 60px;
-}
-
-.about-box{
-  background: #fde6e6;
-  width: 97%;
-  max-width: 2000px;
-  padding: 40px;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  height: 750px;
-}
 
 .about-text{
   flex: 1;
   text-align: center;
+  margin-left: 300px;
+  margin-right: 300px;
+
 }
 
 .about-text h1{
@@ -32,19 +14,7 @@
 
 .about-text p{
   margin-bottom: 20px;
+  margin-left: 150px;
+  margin-right: 150px;
   font-size: 18px;
-}
-
-.about-button{
-  padding: 12px 24px;
-  border: none;
-  background: #ff6b6b;
-  color: white;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.about-button:hover{
-  background: #e63946;
 }

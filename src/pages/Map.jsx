@@ -80,9 +80,8 @@ export default function MapPage() {
           <Map defaultCenter={{ lat: 39.8, lng: -98.5 }} defaultZoom={4} mapId="SISTERHOOD_MAP_ID">
             <SearchEngine query={activeQuery} onResults={setShelters} />
             {shelters.map(s => (
-              <AdvancedMarker key={s.place_id} position={s.geometry.location} onClick={() => handleAIRequest(`Based on the Google Maps' reviews for ${s.name}, please first note the current star rating for this amenity. Then, write a 
-              brief summary on its pros and cons and whether it seems like a trustworthy resource.`, s.name)}>
-                <Pin background={'#ffadad'} />
+              <AdvancedMarker key={s.place_id} position={s.geometry.location} onClick={() => handleAIRequest(`Give a short summary on why ${s.name} is a good resource for women's wellbeing.`, s.name)}>
+                <Pin background={'#f88e8e'} />
               </AdvancedMarker>
             ))}
           </Map>

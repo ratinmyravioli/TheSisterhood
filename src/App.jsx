@@ -10,6 +10,7 @@ import Map from "./pages/Map";
 import About from "./pages/About";
 import Forum from "./pages/Forum";
 
+import logo from "./assets/sisterhood.png";
 
 
 function App() {
@@ -23,7 +24,10 @@ function App() {
     <div className="app-container" style={gradientStyle}>
       {/* testing nav bar */}
       <nav className="navbar">
-        <h2 className="logo">The Sisterhood</h2>
+        <div className="logo-wrap">
+          <img src={logo} className="logo-img" />
+          <h2 className="logo">The Sisterhood</h2>
+        </div>
         <div className="nav-links">
           <Link to="/">Home</Link>
           <Link to="/information">Information</Link>

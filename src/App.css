@@ -107,4 +107,99 @@ body {
   background: #ffadad
 }
 
+/* App.css */
+/* ... your existing styles ... */
+
+/* STYLING FOR GOOGLE MAPS INFOWINDOW */
+.gm-style .gm-style-iw-c {
+  /* This targets the InfoWindow container itself */
+  padding: 15px !important;
+  background-color: #fff0f5 !important; /* A very light pink to match your theme */
+  border-radius: 12px !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+}
+
+.gm-style .gm-style-iw-d {
+  /* Targets the internal container, removing default overflow */
+  overflow: hidden !important;
+  max-height: none !important;
+}
+
+.shelter-popup-content {
+  text-align: center;
+  color: #6b3a3a; /* A dark pink/brown for text */
+  font-family: sans-serif;
+  min-width: 200px;
+}
+
+.shelter-popup-title {
+  /* Makes the title smaller, as requested */
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 12px;
+  color: #a55555; /* A slightly darker pink for the title */
+}
+
+.shelter-popup-summary {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #6b3a3a;
+}
+
+/* Styling for the "X" close button */
+.gm-style .gm-style-iw-t::after {
+  /* Changes the color of the small triangle pointer */
+  background: linear-gradient(45deg, #fff0f5 50%, rgba(255,255,255,0) 51%, rgba(255,255,255,0) 100%) !important;
+}
+
+.gm-ui-hover-effect {
+  /* Styles the 'X' close button */
+  top: 5px !important;
+  right: 5px !important;
+  opacity: 0.7;
+}
+
+/* Sidebar and Panel Background */
+.sidebar-panel {
+  background-color: #6b3a3a !important; /* Dark brownish-pink */
+  color: #fff !important;
+  padding: 20px;
+  border-radius: 20px !important;
+}
+
+/* Button Styling */
+.filter-btn {
+  background-color: #ffadad !important; /* Lighter pink from mockup */
+  color: #6b3a3a !important;
+  border: none !important;
+  padding: 12px 20px !important;
+  border-radius: 20px !important; /* Bubbly effect */
+  font-weight: bold !important;
+  cursor: pointer;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.filter-btn:hover {
+  background-color: #ff8787 !important;
+}
+
+.logo-wrap{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img{
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo{
+  font-family: "Brush Script MT", cursive;
+  font-size: 28px;
+  color: #f4a6a6;
+}
 

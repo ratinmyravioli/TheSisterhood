@@ -90,9 +90,12 @@ export default function Forum(){
                     borderRadius: '10px',
                     marginBottom: '0.1rem',
                     backgroundColor: '#ffffff',
-                    padding: '1rem'}}>
-                    <h2 style={{ color: '#4b2732', fontSize: '20px'}}>{item.title}</h2>
-                    <p style={{ color: '#4b2732'}}>{item.body}</p>
+                    padding: '1rem',
+                    wordWrap: 'break-word',
+                    overflowWrap: 'break-word',
+                    whiteSpace: 'pre-wrap'}}>
+                    <h2 style={{ color: '#4b2732', fontSize: '20px', wordWrap: 'break-word'}}>{item.title}</h2>
+                    <p style={{ color: '#4b2732', wordWrap: 'break-word'}}>{item.body}</p>
                 </div>
                 ))}
                 </div>

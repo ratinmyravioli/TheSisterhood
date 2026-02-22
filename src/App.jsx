@@ -15,19 +15,19 @@ import logo from "./assets/sisterhood.png";
 
 function App() {
   const gradientStyle = {
-    backgroundImage: 'linear-gradient(to top, #ffffff, #fde6e6',
+    backgroundImage: 'linear-gradient(to top, #ffffff, #fde6e6)',
     minHeight: '100vh',
   };
 
   return (
     <>
     <div className="app-container" style={gradientStyle}>
-      {/* testing nav bar */}
       <nav className="navbar">
-        <div className="logo-wrap">
-          <img src={logo} className="logo-img" />
-          <h2 className="logo">The Sisterhood</h2>
-        </div>
+        <div className="navbar-inner">
+          <div className="logo-wrap">
+            <img src={logo} className="logo-img" />
+            <h2 className="logo">The Sisterhood</h2>
+          </div>
         <div className="nav-links">
           <Link to="/">Home</Link>
           <Link to="/information">Information</Link>
@@ -35,7 +35,8 @@ function App() {
           <Link to="/forum">Forum</Link>
           <Link to="/about">About</Link>
         </div>
-      </nav>
+      </div>
+    </nav>
 
       {/* Routes */}
       <Routes>
@@ -44,13 +45,10 @@ function App() {
         <Route path="/map" element={<Map />} />
         <Route path="/forum" element={<Forum />} />
         <Route path="/about" element={<About />} />
-      </Routes>
-
-
-      
-    </div>  
+      </Routes>  
       
     <Chatbot />
+    </div>
     </>
     
     )

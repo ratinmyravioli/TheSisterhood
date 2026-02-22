@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #6e4242;
   padding: 60px;
 }
 .home-box{
@@ -16,7 +15,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 40px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
 }
 
 .home-text{
@@ -34,12 +33,12 @@
 }
 
 .home-button{
-  padding: 12px 24px;
+  padding: 12px 30px;
   border: none;
-  background: #ff6b6b;
+  background: #e69494;
   color: white;
-  font-size: 16px;
-  border-radius: 8px;
+  font-size: 40px;
+  border-radius: 60px;
   cursor: pointer;
 }
 

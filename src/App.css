@@ -12,7 +12,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffadad;
   padding: 60px;
 }
 
@@ -73,9 +72,18 @@ body {
   position: sticky;
   top: 0;
   width: 100%;
-  padding: 20px 60px;
   background: white;
-  color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: 100;
+}
+
+.navbar-inner {
+  width: 97%;
+  max-width: 2000px;
+  padding: 10px 0;
+  padding-left: 25px;
+  flex-wrap: nowrap;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -88,11 +96,18 @@ body {
   color: #ffadad;
 }
 
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  align-items: center;
+}
+
 .nav-links a {
   color: pink;
   text-decoration: none;
-  margin-left: 25px;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {

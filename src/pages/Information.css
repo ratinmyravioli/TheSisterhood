@@ -1,0 +1,107 @@
+.about-page {
+  min-height: calc(100vh - 80px); /* adjust if your navbar is taller/shorter */
+  width: 100%;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  background: #f7e6e6; /* light pink */
+}
+
+/* LEFT SIDEBAR */
+.about-sidebar {
+  background: #3b2328; /* maroon */
+  padding: 40px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-side-btn {
+  background: transparent;
+  border: none;
+  color: #f3b5b5;
+  font-size: 26px;
+  text-align: left;
+  cursor: pointer;
+  line-height: 1.05;
+}
+
+.about-side-btn.active {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* RIGHT CONTENT */
+.about-content {
+  padding: 50px 60px;
+  color: #3b2328;
+}
+
+.info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+  margin-bottom: 80px;
+}
+
+.info-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+}
+
+.info-text h2 {
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+
+.info-text p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.info-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.about-illustration {
+  width: 100%;
+  max-width: 460px;
+  justify-self: end;
+}
+
+.about-icon {
+  width: 100%;
+  max-width: 260px;
+}
+
+/* Placeholder */
+.about-placeholder {
+  max-width: 900px;
+}
+
+.about-title {
+  font-size: 42px;
+  margin-bottom: 14px;
+}
+
+.info-img {
+  width: 400px;      /* controls size */
+  height: auto;
+  object-fit: contain;
+}
+
+.info-img-top{
+  justify-self: end;
+}
+
+.info-img-bottom{
+  justify-self: start;
+  max-width: 320px;
+}
+
+.info-top, .info-bottom{
+  align-items: center;
+}

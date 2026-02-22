@@ -9,21 +9,31 @@ export default function Chatbot() {
     if (!input.trim()) return;
 
     const userMessage = { role: "user", content: input };
-    setMessages(prev => [...prev, userMessage ]);
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
 
     const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
+    const geminiMessages = [
+          {
+          role: "user",
+          parts: [{ text: "You are a helpful assistant for young women who are concerned about their health. Keep responses between 50-100 words (can be above or below by 20 words)." }]
+          },
+          ...updatedMessages.map(m => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: m.content }] }))
+        
+        ];
+
     const response = await ai.models.generateContent({
         model: "gemini-2.5-flash-lite",
-        contents: input,
+        contents: geminiMessages
       });
     
     const botReply = response.text || "Sorry, I couldn't generate a response.";
       console.log("AI Response:", response.text);
 
     const assistantMessage = { role: "assistant", content: botReply };
-      setMessages(prev => [...prev, assistantMessage]);
-      setInput("");
+    setMessages(prev => [...prev, assistantMessage]);
+    setInput("");
     }
 
   return (

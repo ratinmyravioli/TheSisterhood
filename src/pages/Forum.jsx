@@ -20,13 +20,13 @@ export default function Forum(){
         const fetchPost = async () => {
             const {data, error} = await supabase
                 .from('forum_posts')
-                .select('id, title, body, likes, dislikes, num_comments') // select all columns from database
+                .select('id, title, body, likes, dislikes, num_comments, timestamp') // select all columns from database
                 .order('id', { ascending: false });
             if (error) {
                 console.log('Error fetching data:', error)
             } else {
-                setPost(data)
-                }
+                setPost(data);
+            }
         }
         
         // Allows creation of new entries into DB
@@ -36,7 +36,7 @@ export default function Forum(){
             setIsSubmitting(true);
             const { error } = await supabase  
                 .from('forum_posts')
-                .insert([{title: newTitle, body: newBody}]);
+                .insert([{title: newTitle, body: newBody, timestamp: new Date().toISOString()}]);
             if (error) {
                 console.error('Error creating post:', error);
             } else {
@@ -58,6 +58,15 @@ export default function Forum(){
             else fetchPost();
         }
 
+        const formatTime = (ts) => {
+            const date = new Date(ts);
+            return date.toLocaleDateString([], {
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        };
 
         useEffect(() => {
             fetchPost();
@@ -86,7 +95,7 @@ export default function Forum(){
                             padding: '15px', 
                             paddingRight: '85px',
                             boxSizing: 'border-box', 
-                            minHeight: '20px',
+                            minHeight: '85px',
                             maxHeight: '400px',
                             width: '100%',
                             display: 'block',
@@ -113,7 +122,31 @@ export default function Forum(){
                         overflowWrap: 'break-word',
                         whiteSpace: 'pre-wrap'}}>
 
-                        <h2 style={{ color: '#4b2732', fontSize: '20px', wordWrap: 'break-word'}}>{item.title}</h2>
+                        <div style={{ 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'flex-start', 
+            marginBottom: '10px' 
+        }}>
+            <h2 style={{ 
+                color: '#4b2732', 
+                fontSize: '20px', 
+                wordWrap: 'break-word', 
+                margin: 0, 
+                flex: 1 
+            }}>
+                {item.title}
+            </h2>
+            
+            <span style={{ 
+                color: '#a58d94', 
+                fontSize: '12px', 
+                marginLeft: '15px',
+                whiteSpace: 'nowrap' 
+            }}>
+                {item.timestamp ? formatTime(item.timestamp) : ''}
+            </span>
+        </div>
                         <p style={{ color: '#4b2732', wordWrap: 'break-word'}}>{item.body}</p>
 
                         <div style={{ display: 'flex', gap: '20px', alignItems: 'center', color: '#4b2732' }}>
@@ -144,8 +177,8 @@ const circleButtonStyle = {
     position: 'absolute',
     right: '10px',
     bottom: '10px',
-    borderRadius: '50%', // This makes it a circle
-    backgroundColor: '#e69494', // Supabase Green
+    borderRadius: '50%', 
+    backgroundColor: '#e69494', 
     color: 'white',
     border: 'none',
     cursor: 'pointer',

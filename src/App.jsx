@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import Chatbot from './chatbot';
 import { createClient } from '@supabase/supabase-js';
 
 import { Routes, Route, Link } from "react-router-dom";
@@ -69,7 +70,7 @@ function App() {
       </div>
     </div>  
       
-      
+    <Chatbot />
     </>
     
     )

@@ -5,6 +5,11 @@ export default function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  function toggleChat() {
+    setIsOpen(prev=>!prev);
+  }
   async function sendMessage() {
     if (!input.trim()) return;
 
@@ -55,22 +60,36 @@ export default function Chatbot() {
     }
 
   return (
-    <div style={{ padding: "1rem" }}>
-      <h2>Chatbot</h2>
+    <div>
+      {/* ICON BUTTON */}
+      <button 
+        onClick={toggleChat} style={{ position: "fixed", bottom: "20px", right: "20px", width: "60px", height: "60px", borderRadius: "50%", background: "#ff69b4", color: "white", fontSize: "24px", border: "none", cursor: "pointer" }} >
+        💬
+      </button>
 
-      <div style={{ border: "1px solid #ccc", padding: "1rem", height: "200px", overflowY: "auto" }}>
-        {messages.map((m, i) => (
-          <p key={i}><strong>{m.role}:</strong> {m.content}</p>
-        ))}
-      </div>
+      {/* CHATBOX (only appears when isOpen === true) */}
+      {isOpen && (
+        <div style={{ position: "fixed", bottom: "100px", right: "20px", width: "300px", height: "400px", background: "white", border: "1px solid #ccc", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column" }} >
+          <h3>The Sisterhood Chatbot</h3>
+
+          <div style={{ flex: 1, overflowY: "auto", border: "1px solid #eee", padding: "0.5rem", marginBottom: "0.5rem" }} >
+            {messages.map((m, i) => (
+              <p key={i}>
+                <strong>{m.role}:</strong> {m.content}
+              </p>
+            ))}
+          </div>
 
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={(e) => e.key === "Enter" && sendMessage()}
         placeholder="Type a message..."
+        style = {{marginBottom: "0.5rem"}}
       />
       <button onClick={sendMessage}>Send</button>
+    </div>
+      )}
     </div>
   );
 }

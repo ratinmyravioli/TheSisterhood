@@ -13,11 +13,14 @@ import Forum from "./pages/Forum";
 
 
 function App() {
-
+  const gradientStyle = {
+    backgroundImage: 'linear-gradient(to top, #ffffff, #fde6e6',
+    minHeight: '100vh',
+  };
 
   return (
     <>
-    <div className="app-container">
+    <div className="app-container" style={gradientStyle}>
       {/* testing nav bar */}
       <nav className="navbar">
         <h2 className="logo">The Sisterhood</h2>
